@@ -1,0 +1,33 @@
+.btn-outline-danger {
+    display: inline-block;
+    width: 400px;
+    height: 150px;
+    background: #ffffff !important;
+    padding: 10px;
+    text-align: center;
+    border-radius: 15px;
+    color: rgb(76, 99, 201);
+    font-weight: bold;
+    line-height: 25px;
+    margin: 1px 1px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 15%;
+    margin-right: 0%;
+    border-color: rgb(76, 99, 201);
+    outline: none;
+}
+/* Lors du survol du bouton de la page d'accueil */
+.btn-outline-danger:hover {
+    background: rgb(76, 99, 201) !important;
+    color: #ffffff;
+    border-color: rgb(76, 99, 201);
+}
+
+.btn-outline-danger:focus {
+    box-shadow: none;
+}
+
+body {
+    background-color: rgb(255, 255, 255) ;
+}

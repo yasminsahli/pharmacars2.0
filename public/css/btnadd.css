@@ -1,0 +1,23 @@
+.btn-outline-success2 {
+    display: inline-block;
+    width: 2000px;
+    height: 40px;
+    background: #ffffff !important;
+    padding: 10px;
+    text-align: center;
+    border-radius: 15px;
+    color: rgb(76, 99, 201) !important;
+    font-weight: bold;
+    line-height: 25px;
+    border-color: rgb(76, 99, 201) !important;
+}
+/* Lors du survol du bouton de la page d'accueil */
+.btn-outline-success2:hover {
+    background: rgb(76, 99, 201) !important;
+    color: #ffffff !important;
+    border-color: rgb(76, 99, 201) !important;
+}
+
+.btn-outline-success2:focus {
+    box-shadow: none;
+}
