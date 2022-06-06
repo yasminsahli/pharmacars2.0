@@ -36,10 +36,7 @@
             <a class="nav-link" href="{{route('goBookFormu')}}">Formulaire de réservation</a>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Tapez votre recherche" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Rechercher</button>
-      </form>
+      @include('partials.searchFormulaire')
     </div>
   </div>
 </nav>

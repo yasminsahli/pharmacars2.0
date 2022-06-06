@@ -70,6 +70,8 @@ Route::get('vehiculeSearch', [Vehicule::class, 'search'])->name("goVehiculeSearc
 
 Route::get('visiteurSearch', [Visiteur::class, 'search'])->name("goVisiteurSearch");
 
+Route::get('formulaireSearch', [Formulaire::class, 'search'])->name("goFormulaireSearch");
+
 //create
 Route::post('/addvisiteur', [AddVisit::class, "create"])->name("goAddVisit");
 
