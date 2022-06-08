@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+
 
 class Visiteur extends Controller{
 
@@ -39,22 +42,30 @@ class Visiteur extends Controller{
 
     }
 
-    public function modif(Request $request, visiteur $Visiteur) {
-
-        $rqs = DB::table('visiteur')->where('VISITId','=', $Visiteur->VISITId)
+    public function modif(Request $request, int $Visiteur) {
+        $rqs = DB::table('visiteur')->where('VISITId', $Visiteur)
         ->update([
-
-
             'VISITNom' => $request->input('VISITNom'),
+            'VISITPrenom' => $request->input('VISITPrenom'),
+            'VISITAge' => $request->input('VISITAge'),
+            'VISITPoste' => $request->input('VISITPoste'),
         ]);
 
 
         return redirect('/visiteur');
     }
 
-    public function del(Request $request, visiteur $Visiteur) {
+    public function del(Request $request, int $visiteur) {
 
-        $Visiteur->delete();
+        DB::table('permis')->where('PermisVisitId', $visiteur)->delete();
+
+        DB::table('fiche_visiteur')->where('FicheVVisitId', $visiteur)->delete();
+
+        DB::table('connexion')->where('CONNEXVisitId', $visiteur)->delete();
+
+        DB::table('utilisateur')->where('UTILVisitId', $visiteur)->delete();
+
+        DB::table('visiteur')->where('VISITId', $visiteur)->delete();
 
         return back();
 

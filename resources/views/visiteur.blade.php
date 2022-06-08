@@ -76,7 +76,7 @@
               <td class="pt-3-half" contenteditable="true">{{$Visiteur->VISITPoste}}</td>
                  <!-- bouton modifer -->
                 <td class="pt-3-half" class="MS" > 
-                  <a type="button" class="btn btn-outline-danger2" href="{{ route('goModifVisit',['visiteur'=>$Visiteur->VISITId]) }}">Modifier</a>
+                  <a type="button" class="btn btn-outline-danger2" href="{{ route('goModifVisit',['visiteur'=>$Visiteur->getKey()]) }}">Modifier</a>
                 </td>
 
                 <!-- bouton supprimer -->

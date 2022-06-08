@@ -73,12 +73,12 @@
               <td class="pt-3-half" contenteditable="true">{{$Fiche_Fin_Utilisation->FICHENbKm}}</td>
               <td class="pt-3-half" contenteditable="true">{{$Fiche_Fin_Utilisation->FICHENbKm}}</td>
               <td class="pt-3-half" contenteditable="false">
-                <a type="button" class="btn btn-outline-danger2" href="{{route('goModifFormu')}}">
+                <a type="button" class="btn btn-outline-danger2" href="{{route('goModifFormu', 'formulaire')}}">
                     Modifier
                 </a>
               </td>
               <td class="pt-3-half" contenteditable="false"> 
-                <a type="button" class="btn btn-outline-danger2" href="{{route('goSupprFormu')}}">
+                <a type="button" class="btn btn-outline-danger2" href="{{route('goSupprFormu', 'formulaire')}}">
                     Supprimer
                 </a>
               </td>

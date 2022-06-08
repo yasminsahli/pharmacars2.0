@@ -46,18 +46,6 @@ Route::get('/vehicule', [Vehicule::class, "show"])->name("goVehicule");
 
 Route::get('/formulaire', [Formulaire::class, "show"])->name("goFormulaire");
 
-Route::get('/supprimervisiteur', [SupprVisit::class, "show"])->name("goSupprVisit");
-
-Route::get('/supprimervehicule', [SupprVehi::class, "show"])->name("goSupprVehi");
-
-Route::get('/supprimerformulaire', [SupprFormu::class, "show"])->name("goSupprFormu");
-
-Route::get('/modifvehicule', [ModifVehi::class, "show"])->name("goModifVehi");
-
-Route::get('/modifvisiteur', [ModifVisit::class, "show"])->name("goModifVisit");
-
-Route::get('/modifformulaire', [ModifFormu::class, "show"])->name("goModifFormu");
-
 Route::get('/addvisiteur', [AddVisit::class, "show"])->name("goAddVisit");
 
 Route::get('/addvehicule', [AddVehi::class, "show"])->name("goAddVehi");
@@ -73,11 +61,29 @@ Route::get('visiteurSearch', [Visiteur::class, 'search'])->name("goVisiteurSearc
 Route::get('formulaireSearch', [Formulaire::class, 'search'])->name("goFormulaireSearch");
 
 //create
-Route::post('/addvisiteur', [AddVisit::class, "create"])->name("goAddVisit");
+Route::post('/addvisiteur', [Visiteur::class, "create"])->name("goAddVisit");
 
 //update
-Route::get('/modifvisiteur/{modifvisiteur}', [Visiteur::class, "upd"])->name("goModifVisit");
-Route::post('/modifvisiteur', [Visiteur::class, "modif"])->name("goModifVisit");
+
+Route::post('/modifvisiteur/{visiteur}', [Visiteur::class, "modif"])->name("goModifVisit");
+Route::get('/modifvisiteur/{visiteur}', [ModifVisit::class, "show"])->name("goModifVisit");
+
+Route::post('/modifvehicule/{vehicule}', [Vehicule::class, "modif"])->name("goModifVehi");
+Route::get('/modifvehicule/{vehicule}', [ModifVehi::class, "show"])->name("goModifVehi");
+
+
+Route::post('/modifformulaire/{formulaire}', [Formulaire::class, "modif"])->name("goModifFormu");
+Route::get('/modifformulaire/{formulaire}', [ModifFormu::class, "show"])->name("goModifFormu");
+
 
 //delete
-Route::delete('/supprimervisiteur', [SupprVisit::class, "show"])->name("goSupprVisit");
+Route::delete('/supprimervisiteur/{visiteur}', [Visiteur::class, "del"])->name("goSupprVisit");
+Route::delete('/supprimervehicule/{vehicule}', [Vehicule::class, "del"])->name("goSupprVehi");
+Route::delete('/supprimerformulaire/{formulaire}', [Formulaire::class, "del"])->name("goSupprFormu");
+
+Route::get('/supprimervisiteur', [SupprVisit::class, "show"])->name("goSupprVisit");
+
+Route::get('/supprimervehicule', [SupprVehi::class, "show"])->name("goSupprVehi");
+
+Route::get('/supprimerformulaire', [SupprFormu::class, "show"])->name("goSupprFormu");
+

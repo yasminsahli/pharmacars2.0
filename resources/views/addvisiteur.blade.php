@@ -37,60 +37,46 @@
      <body>
         <div class="card" style="text-align: center;">
          <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Ajouter un visiteur</h3>
-             <form class="needs-validation" novalidate>
+             
+             <form class="needs-validation" method="post" action="{{ route('goAddVisit') }}">
+               @csrf
                  <div class="form-row" style="padding : 0 20%">
                      <div class="mb-3">
-                         <label for="cp">ID</label>
-                         <input type="number" class="form-control" id="numcaserne" placeholder="19" required>
+                         <label for="VISITId">ID</label>
+                         <input type="text" class="form-control" name="VISITId" placeholder="19" required>
                          <div class="valid-feedback">Ok !</div>
                          <div class="invalid-feedback">Valeur incorrecte</div>
                      </div>
                      <div class="mb-3">
-                         <label for="nom">Modèle</label>
-                         <input type="text" class="form-control" id="adresse" placeholder="Twingo" required>
+                         <label for="VISITNom">Nom</label>
+                         <input type="text" class="form-control" name="VISITNom" placeholder="Twingo" required>
                          <div class="valid-feedback">Ok !</div>
                          <div class="invalid-feedback">Valeur incorrecte</div>
                      </div>
                      <div class="mb-3">
-                         <label for="pseudo">Dernière révision</label>
-                         <input type="text" class="form-control" id="cp" placeholder="12/05/2013" required>
+                         <label for="VISITPrenom">Prénom</label>
+                         <input type="text" class="form-control" name="VISITPrenom" placeholder="12/05/2013" required>
                          <div class="valid-feedback">Ok !</div>
                          <div class="invalid-feedback">Valeur incorrecte</div>
                      </div>
                  </div>
                  <div class="form-row" style = "padding : 0 20%">
                      <div class="mb-3">
-                         <label for="ville">Etat</label>
-                         <input type="text" class="form-control" id="ville" placeholder="Libre" required>
+                         <label for="VISITPoste">Poste</label>
+                         <input type="text" class="form-control" name="VISITPoste" placeholder="Libre" required>
                          <div class="valid-feedback">Ok !</div>
                          <div class="invalid-feedback">Valeur incorrecte</div>
                      </div>
                      <div class="mb-3">
-                         <label for="cp">Utilisateur actuel</label>
-                         <input type="number" class="form-control" id="codetypec" placeholder="Harry Potter" required>
+                         <label for="VISITAge">Age</label>
+                         <input type="text" class="form-control" name="VISITAge" placeholder="Harry Potter" required>
                          <div class="valid-feedback">Ok !</div>
                          <div class="invalid-feedback">Valeur incorrecte</div>
                      </div>
                  </div>
-                 <a class="btn btn-outline-success my-2 my-sm-0" type="submit" href= "{{route('goVisiteur')}}">Envoyer</a>
+                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Envoyer</button>
              </form>
          </div>
-         <script>
-           (function() {
-             'use strict';
-             window.addEventListener('load', function() {
-               let forms = document.getElementsByClassName('needs-validation');
-               let validation = Array.prototype.filter.call(forms, function(form) {
-                 form.addEventListener('submit', function(event) {
-                   if (form.checkValidity() === false) {
-                     event.preventDefault();
-                     event.stopPropagation();
-                   }
-                   form.classList.add('was-validated');
-                 }, false);
-               });
-             }, false);
-           })();
-         </script>
+         
     </body>
 </html>

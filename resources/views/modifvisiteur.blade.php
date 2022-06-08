@@ -39,7 +39,8 @@
 <body>
   <div class="card" style="text-align: center;">
     <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Modifier un visiteur</h3>
-    <form method="POST">
+    <form method="post" action="{{ route('goModifVisit', ['visiteur'=>$visiteur->VISITId])}}">
+           @csrf
       <div class="form-group">
         <label for="VISITId">Identifiant</label>
         <input readonly type="number" class="form-control" name="VISITId" min="10" value="{{$visiteur->VISITId}}">
@@ -61,26 +62,10 @@
         <input type="name" class="form-control" name="VISITPoste" value="{{$visiteur->VISITPoste}}">
       </div>
       <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-      <input type="submit" class="btn success" value="Valider"></input>
+      <a class="btn btn-outline-success my-2 my-sm-0" type="submit" href="{{route('goVisiteur')}}">Enregistrer les modifications</a>
     </form>
   </div>
-  <script>
-    (function() {
-      'use strict';
-      window.addEventListener('load', function() {
-        let forms = document.getElementsByClassName('needs-validation');
-        let validation = Array.prototype.filter.call(forms, function(form) {
-          form.addEventListener('submit', function(event) {
-            if (form.checkValidity() === false) {
-              event.preventDefault();
-              event.stopPropagation();
-            }
-            form.classList.add('was-validated');
-          }, false);
-        });
-      }, false);
-    })();
-  </script>
+  
 </body>
 
 </html>

@@ -39,29 +39,23 @@
 <body>
   <div class="card" style="text-align: center;">
     <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Modifier le véhicule</h3>
-    <form class="needs-validation" novalidate>
-
+    <form method="post" action="">
+           @csrf
       <div class="form-row" style="padding : 0 20%">
 
         <div class="mb-3">
-          <label for="cp">ID</label>
-          <input type="number" class="form-control" id="numcaserne" required value="{{$vehicule->VEHId}}>
-          <div class="valid-feedback">Ok !</div>
-          <div class="invalid-feedback">Valeur incorrecte</div>
+          <label for="VEHId">ID</label>
+          <input type="number" class="form-control" name="VEHId" required value="">
         </div>
 
         <div class="mb-3">
-          <label for="nom">Modèle</label>
-          <input type="text" class="form-control" id="adresse" placeholder="Twingo" required>
-          <div class="valid-feedback">Ok !</div>
-          <div class="invalid-feedback">Valeur incorrecte</div>
+          <label for="VEHModele">Modèle</label>
+          <input type="text" class="form-control" name="VEHModele" placeholder="Twingo" required>
         </div>
 
         <div class="mb-3">
-          <label for="pseudo">Dernière révision</label>
-          <input type="text" class="form-control" id="cp" placeholder="12/05/2013" required>
-          <div class="valid-feedback">Ok !</div>
-          <div class="invalid-feedback">Valeur incorrecte</div>
+          <label for="VEHDateRevision">Dernière révision</label>
+          <input type="text" class="form-control" name="VEHDateRevision" placeholder="12/05/2013" required>
         </div>
 
       </div>
@@ -69,36 +63,16 @@
         <div class="mb-3">
           <label for="ville">Etat</label>
           <input type="text" class="form-control" id="ville" placeholder="Libre" required>
-          <div class="valid-feedback">Ok !</div>
-          <div class="invalid-feedback">Valeur incorrecte</div>
         </div>
         <div class="mb-3">
           <label for="cp">Utilisateur actuel</label>
           <input type="number" class="form-control" id="codetypec" placeholder="Harry Potter" required>
-          <div class="valid-feedback">Ok !</div>
-          <div class="invalid-feedback">Valeur incorrecte</div>
         </div>
       </div>
+      <input type="hidden" name="_token" value="{{ csrf_token() }}" />
       <a class="btn btn-outline-success my-2 my-sm-0" type="submit" href="{{route('goVehicule')}}">Enregistrer les modifications</a>
     </form>
   </div>
-  <script>
-    (function() {
-      'use strict';
-      window.addEventListener('load', function() {
-        let forms = document.getElementsByClassName('needs-validation');
-        let validation = Array.prototype.filter.call(forms, function(form) {
-          form.addEventListener('submit', function(event) {
-            if (form.checkValidity() === false) {
-              event.preventDefault();
-              event.stopPropagation();
-            }
-            form.classList.add('was-validated');
-          }, false);
-        });
-      }, false);
-    })();
-  </script>
 </body>
 
 </html>
